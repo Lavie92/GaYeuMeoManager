@@ -32,14 +32,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCustomerId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNameCustomer = new System.Windows.Forms.TextBox();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtCustomerEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtCustomerPhoneNumber = new System.Windows.Forms.TextBox();
+            this.dateTimeCustomerBirthDate = new System.Windows.Forms.DateTimePicker();
             this.rdoGenderMale = new System.Windows.Forms.RadioButton();
             this.rdoGenderFemale = new System.Windows.Forms.RadioButton();
             this.btnAddNewCustomer = new System.Windows.Forms.Button();
@@ -72,12 +72,12 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên khách hàng";
             // 
-            // txtNameCustomer
+            // txtCustomerName
             // 
-            this.txtNameCustomer.Location = new System.Drawing.Point(131, 77);
-            this.txtNameCustomer.Name = "txtNameCustomer";
-            this.txtNameCustomer.Size = new System.Drawing.Size(100, 20);
-            this.txtNameCustomer.TabIndex = 1;
+            this.txtCustomerName.Location = new System.Drawing.Point(131, 77);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(100, 20);
+            this.txtCustomerName.TabIndex = 1;
             // 
             // label3
             // 
@@ -106,12 +106,12 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Email";
             // 
-            // txtEmail
+            // txtCustomerEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(131, 251);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtEmail.TabIndex = 1;
+            this.txtCustomerEmail.Location = new System.Drawing.Point(131, 251);
+            this.txtCustomerEmail.Name = "txtCustomerEmail";
+            this.txtCustomerEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtCustomerEmail.TabIndex = 1;
             // 
             // label6
             // 
@@ -122,23 +122,23 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "SĐT";
             // 
-            // txtPhoneNumber
+            // txtCustomerPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(131, 315);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtPhoneNumber.TabIndex = 1;
+            this.txtCustomerPhoneNumber.Location = new System.Drawing.Point(131, 315);
+            this.txtCustomerPhoneNumber.Name = "txtCustomerPhoneNumber";
+            this.txtCustomerPhoneNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtCustomerPhoneNumber.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dateTimeCustomerBirthDate
             // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(131, 130);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimeCustomerBirthDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimeCustomerBirthDate.CustomFormat = "dd/MM/yyyy";
+            this.dateTimeCustomerBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.dateTimeCustomerBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimeCustomerBirthDate.Location = new System.Drawing.Point(131, 136);
+            this.dateTimeCustomerBirthDate.Name = "dateTimeCustomerBirthDate";
+            this.dateTimeCustomerBirthDate.Size = new System.Drawing.Size(100, 20);
+            this.dateTimeCustomerBirthDate.TabIndex = 2;
             // 
             // rdoGenderMale
             // 
@@ -170,6 +170,7 @@
             this.btnAddNewCustomer.TabIndex = 4;
             this.btnAddNewCustomer.Text = "Thêm";
             this.btnAddNewCustomer.UseVisualStyleBackColor = true;
+            this.btnAddNewCustomer.Click += new System.EventHandler(this.btnAddNewCustomer_Click);
             // 
             // btnCancelCustomer
             // 
@@ -190,14 +191,14 @@
             this.Controls.Add(this.btnAddNewCustomer);
             this.Controls.Add(this.rdoGenderFemale);
             this.Controls.Add(this.rdoGenderMale);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.txtPhoneNumber);
+            this.Controls.Add(this.dateTimeCustomerBirthDate);
+            this.Controls.Add(this.txtCustomerPhoneNumber);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtCustomerEmail);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtNameCustomer);
+            this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCustomerId);
             this.Controls.Add(this.label1);
@@ -217,14 +218,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCustomerId;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNameCustomer;
+        private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtCustomerEmail;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtCustomerPhoneNumber;
+        private System.Windows.Forms.DateTimePicker dateTimeCustomerBirthDate;
         private System.Windows.Forms.RadioButton rdoGenderMale;
         private System.Windows.Forms.RadioButton rdoGenderFemale;
         private System.Windows.Forms.Button btnAddNewCustomer;

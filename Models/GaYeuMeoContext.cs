@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data.Entity;
 namespace Models
 {
-    public class Class1
+    internal class GaYeuMeoContext : DbContext
     {
+        GaYeuMeoContext () : base("name=GymContext") { }
     }
 }
