@@ -11,14 +11,17 @@ namespace GaYeuMeoManager.Models
 {
     public class OrdersDetail
     {
-        [Key]
+       
+        [Key, Column(Order = 0)]
         public int OrdersId { get; set; }
         [ForeignKey("OrdersId")]
         public Orders Orders { get; set; }
-        public string ItemName { get; set; }
-        public int Quantity { get; set; }
+        [Key, Column(Order = 1)]
         public int SubscriptionId { get; set; }
         [ForeignKey("SubscriptionId")]
         public GymSubscription GymSubscription { get; set; }
+
+        public int Quantity { get; set; }
+        public int TotalOrdersDetail { get; set; }
     }
 }

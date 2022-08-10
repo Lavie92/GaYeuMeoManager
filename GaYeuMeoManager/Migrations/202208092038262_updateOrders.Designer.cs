@@ -7,13 +7,13 @@ namespace GaYeuMeoManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class UpdateSubscriptionTable : IMigrationMetadata
+    public sealed partial class updateOrders : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateSubscriptionTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updateOrders));
         
         string IMigrationMetadata.Id
         {
-            get { return "202208070459297_UpdateSubscriptionTable"; }
+            get { return "202208092038262_updateOrders"; }
         }
         
         string IMigrationMetadata.Source

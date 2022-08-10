@@ -14,7 +14,7 @@ namespace GaYeuMeoManager.Controller
         public InvalidCustomerNameException(string message, Exception innerException) : base(message, innerException) { }
         public InvalidCustomerNameException(string message, string invalidName)
         {
-            invalidName = invalidName;
+            this.InvalidCustomerName = invalidName;
         }
     }
 }

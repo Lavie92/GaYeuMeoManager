@@ -61,7 +61,7 @@
             this.txtCustomerId.Location = new System.Drawing.Point(131, 25);
             this.txtCustomerId.Name = "txtCustomerId";
             this.txtCustomerId.Size = new System.Drawing.Size(100, 20);
-            this.txtCustomerId.TabIndex = 1;
+            this.txtCustomerId.TabIndex = 0;
             // 
             // label2
             // 
@@ -111,7 +111,7 @@
             this.txtCustomerEmail.Location = new System.Drawing.Point(131, 251);
             this.txtCustomerEmail.Name = "txtCustomerEmail";
             this.txtCustomerEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtCustomerEmail.TabIndex = 1;
+            this.txtCustomerEmail.TabIndex = 5;
             // 
             // label6
             // 
@@ -127,7 +127,7 @@
             this.txtCustomerPhoneNumber.Location = new System.Drawing.Point(131, 315);
             this.txtCustomerPhoneNumber.Name = "txtCustomerPhoneNumber";
             this.txtCustomerPhoneNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtCustomerPhoneNumber.TabIndex = 1;
+            this.txtCustomerPhoneNumber.TabIndex = 6;
             // 
             // dateTimeCustomerBirthDate
             // 
@@ -136,9 +136,12 @@
             this.dateTimeCustomerBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.dateTimeCustomerBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimeCustomerBirthDate.Location = new System.Drawing.Point(131, 136);
+            this.dateTimeCustomerBirthDate.MaxDate = new System.DateTime(2050, 1, 25, 0, 0, 0, 0);
+            this.dateTimeCustomerBirthDate.MinDate = new System.DateTime(1980, 6, 11, 0, 0, 0, 0);
             this.dateTimeCustomerBirthDate.Name = "dateTimeCustomerBirthDate";
             this.dateTimeCustomerBirthDate.Size = new System.Drawing.Size(100, 20);
             this.dateTimeCustomerBirthDate.TabIndex = 2;
+            this.dateTimeCustomerBirthDate.Value = new System.DateTime(2022, 8, 7, 0, 0, 0, 0);
             // 
             // rdoGenderMale
             // 
@@ -157,7 +160,7 @@
             this.rdoGenderFemale.Location = new System.Drawing.Point(192, 199);
             this.rdoGenderFemale.Name = "rdoGenderFemale";
             this.rdoGenderFemale.Size = new System.Drawing.Size(39, 17);
-            this.rdoGenderFemale.TabIndex = 3;
+            this.rdoGenderFemale.TabIndex = 4;
             this.rdoGenderFemale.TabStop = true;
             this.rdoGenderFemale.Text = "Nữ";
             this.rdoGenderFemale.UseVisualStyleBackColor = true;
@@ -167,7 +170,7 @@
             this.btnAddNewCustomer.Location = new System.Drawing.Point(28, 358);
             this.btnAddNewCustomer.Name = "btnAddNewCustomer";
             this.btnAddNewCustomer.Size = new System.Drawing.Size(79, 50);
-            this.btnAddNewCustomer.TabIndex = 4;
+            this.btnAddNewCustomer.TabIndex = 7;
             this.btnAddNewCustomer.Text = "Thêm";
             this.btnAddNewCustomer.UseVisualStyleBackColor = true;
             this.btnAddNewCustomer.Click += new System.EventHandler(this.btnAddNewCustomer_Click);
@@ -177,13 +180,14 @@
             this.btnCancelCustomer.Location = new System.Drawing.Point(172, 358);
             this.btnCancelCustomer.Name = "btnCancelCustomer";
             this.btnCancelCustomer.Size = new System.Drawing.Size(79, 50);
-            this.btnCancelCustomer.TabIndex = 4;
+            this.btnCancelCustomer.TabIndex = 8;
             this.btnCancelCustomer.Text = "Huỷ bỏ";
             this.btnCancelCustomer.UseVisualStyleBackColor = true;
             this.btnCancelCustomer.Click += new System.EventHandler(this.btnCancelCustomer_Click);
             // 
             // frmAddCustomer
             // 
+            this.AcceptButton = this.btnAddNewCustomer;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 429);

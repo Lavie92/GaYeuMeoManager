@@ -56,22 +56,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CustomerController.cs" />
+    <Compile Include="Controller\ICustomerController.cs" />
     <Compile Include="Controller\InvalidCustomerNameException.cs" />
-    <Compile Include="Migrations\202208062100335_updateTableOrders.cs" />
-    <Compile Include="Migrations\202208062100335_updateTableOrders.designer.cs">
-      <DependentUpon>202208062100335_updateTableOrders.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208062120493_addAccountPermission.cs" />
-    <Compile Include="Migrations\202208062120493_addAccountPermission.designer.cs">
-      <DependentUpon>202208062120493_addAccountPermission.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208070455436_addSubscriptionTable.cs" />
-    <Compile Include="Migrations\202208070455436_addSubscriptionTable.designer.cs">
-      <DependentUpon>202208070455436_addSubscriptionTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208070459297_UpdateSubscriptionTable.cs" />
-    <Compile Include="Migrations\202208070459297_UpdateSubscriptionTable.designer.cs">
-      <DependentUpon>202208070459297_UpdateSubscriptionTable.cs</DependentUpon>
+    <Compile Include="Controller\InvalidEmailException.cs" />
+    <Compile Include="Controller\InvalidPhoneException.cs" />
+    <Compile Include="Migrations\202208092038262_updateOrders.cs" />
+    <Compile Include="Migrations\202208092038262_updateOrders.designer.cs">
+      <DependentUpon>202208092038262_updateOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountPermission.cs" />
@@ -86,48 +78,46 @@
     <Compile Include="View\frmAddCustomer.Designer.cs">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmAddOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmAddOrders.Designer.cs">
+      <DependentUpon>frmAddOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAddSubscription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmAddSubscription.Designer.cs">
+      <DependentUpon>frmAddSubscription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\GymContext.cs" />
     <Compile Include="View\frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202208061213184_AddCustomerTable.cs" />
-    <Compile Include="Migrations\202208061213184_AddCustomerTable.designer.cs">
-      <DependentUpon>202208061213184_AddCustomerTable.cs</DependentUpon>
+    <Compile Include="View\frmLogin.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\202208061218334_AddCustomerTable1.cs" />
-    <Compile Include="Migrations\202208061218334_AddCustomerTable1.designer.cs">
-      <DependentUpon>202208061218334_AddCustomerTable1.cs</DependentUpon>
+    <Compile Include="View\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\GymContext.cs" />
     <Compile Include="View\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\202208062100335_updateTableOrders.resx">
-      <DependentUpon>202208062100335_updateTableOrders.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208062120493_addAccountPermission.resx">
-      <DependentUpon>202208062120493_addAccountPermission.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208070455436_addSubscriptionTable.resx">
-      <DependentUpon>202208070455436_addSubscriptionTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208070459297_UpdateSubscriptionTable.resx">
-      <DependentUpon>202208070459297_UpdateSubscriptionTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208092038262_updateOrders.resx">
+      <DependentUpon>202208092038262_updateOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmAddCustomer.resx">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmHome.resx">
-      <DependentUpon>frmHome.cs</DependentUpon>
+    <EmbeddedResource Include="View\frmAddOrders.resx">
+      <DependentUpon>frmAddOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208061213184_AddCustomerTable.resx">
-      <DependentUpon>202208061213184_AddCustomerTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208061218334_AddCustomerTable1.resx">
-      <DependentUpon>202208061218334_AddCustomerTable1.cs</DependentUpon>
+    <EmbeddedResource Include="View\frmAddSubscription.resx">
+      <DependentUpon>frmAddSubscription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,6 +128,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="View\packages.config" />
     <None Include="Properties\Settings.settings">
