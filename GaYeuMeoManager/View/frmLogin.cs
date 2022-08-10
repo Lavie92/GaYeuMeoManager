@@ -18,6 +18,7 @@ namespace GaYeuMeoManager.View
         public frmLogin()
         {
             InitializeComponent();
+            CenterToParent();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -27,7 +28,7 @@ namespace GaYeuMeoManager.View
             var myaccount = GymContext.Accounts.FirstOrDefault(x => x.Username == username && x.Password == password);
             if (myaccount != null)
             {
-                frmHome frmHome = new frmHome();
+                frmHome frmHome = new frmHome(username, password);
                 this.Hide();
                 frmHome.ShowDialog();
                 this.Close();

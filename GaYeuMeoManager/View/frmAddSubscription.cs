@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using GaYeuMeoManager.Controller;
 
 namespace GaYeuMeoManager.View
 {
@@ -21,13 +23,29 @@ namespace GaYeuMeoManager.View
 
         private void btnAddSubscription_Click(object sender, EventArgs e)
         {
+
             GymSubscription subscription = new GymSubscription();
             string name = txtSubscriptionName.Text;
             int price = (int)numericSubscriptionPrice.Value;
-            subscription.SubscriptionName = name;
-            subscription.Price = price;
-            GymContext.GymSubscriptions.Add(subscription);
-            GymContext.SaveChanges();
+            CustomerController customerController = new CustomerController();
+            SubscriptionController subscriptionController = new SubscriptionController();
+            try
+            {
+                if (!subscriptionController.IsValidSubscriptionName(name))
+                {
+                    throw new InvalidSubscriptionNameException("Tên gói tập không hợp lệ");
+                }
+                subscription.SubscriptionName = name;
+                subscription.Price = price;
+                GymContext.GymSubscriptions.Add(subscription);
+                GymContext.SaveChanges();
+                this.Close();
+            }
+            catch (InvalidSubscriptionNameException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void btnSubscriptionCancel_Click(object sender, EventArgs e)

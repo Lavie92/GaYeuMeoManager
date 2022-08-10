@@ -17,14 +17,26 @@ namespace GaYeuMeoManager.View
     public partial class frmHome : Form
     {
         GymContext gymContext = new GymContext();
-        int indexRow;
-        public frmHome()
+        public frmHome(string username, string password)
         {
             InitializeComponent();
+            var roleId = (from a in gymContext.Accounts
+                          join ap in gymContext.AccountPermissions on a.AccountId equals ap.AccountId
+                          where a.Username == username && a.Password == password
+                          select ap.PermissionId)
+             .SingleOrDefault();
+            if (roleId == 2)
+            {
+                groupBox1_Orders.Enabled = false;
+                groupBox2_Supscription.Enabled = false;
+                groupBox1_Subscription.Enabled = false;
+            }
+            CenterToParent();
         }
 
         private void frmHome_Load(object sender, EventArgs e)
         {
+            //groupBox1.Hide();
             dgvCustomer.AutoGenerateColumns = false;
             dgvCustomer.DataSource = gymContext.Customers.ToList();
             dgvSubscription.AutoGenerateColumns = false;
@@ -32,7 +44,7 @@ namespace GaYeuMeoManager.View
             dgvSubscription.AutoGenerateColumns = false;
             dgvSubscription.DataSource = gymContext.GymSubscriptions.ToList<GymSubscription>();
             txtCustomerId.Text = dgvCustomer.SelectedCells[0].Value.ToString();
-
+            RefreshOrders();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -74,6 +86,7 @@ namespace GaYeuMeoManager.View
             dgvCustomer.AutoGenerateColumns = false;
             dgvCustomer.DataSource = gymContext.Customers.ToList();
         }
+        int indexRow;
 
         private void dgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -85,6 +98,7 @@ namespace GaYeuMeoManager.View
             dateTimeBirthDate.Text = row.Cells[2].Value.ToString();
             txtPhoneNumber.Text = row.Cells[5].Value.ToString();
         }
+
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
             DataGridViewRow newDataRow = dgvCustomer.Rows[indexRow];
@@ -108,7 +122,8 @@ namespace GaYeuMeoManager.View
             }
         }
 
-        private void btnRefreshOrders_Click(object sender, EventArgs e)
+      
+        private void RefreshOrders()
         {
             var entryPoint = (from s in gymContext.GymSubscriptions
                               join od in gymContext.OrdersDetails on s.SubscriptionId equals od.SubscriptionId
@@ -127,6 +142,84 @@ namespace GaYeuMeoManager.View
                                   Quantity = od.Quantity
                               }).ToList();
             dgvOrders.DataSource = entryPoint;
+        }
+
+        private void btnRefreshOrders_Click(object sender, EventArgs e)
+        {
+            RefreshOrders();
+        }
+        private void btnDeleteOrders_Click(object sender, EventArgs e)
+        {
+            int ordersId = (int)dgvOrders.SelectedCells[0].Value;
+            var ordersDel = (from s in gymContext.Orders where s.OrdersId == ordersId select s).First();
+            gymContext.Orders.Remove(ordersDel);
+            gymContext.SaveChanges();
+            RefreshOrders();
+        }
+
+        private void btnDeleteSubscription_Click(object sender, EventArgs e)
+        {
+            int subscriptionId = (int)dgvSubscription.SelectedCells[0].Value;
+            var subscriptionDel = (from s in gymContext.GymSubscriptions where s.SubscriptionId == subscriptionId select s).First();
+            gymContext.GymSubscriptions.Remove(subscriptionDel);
+            gymContext.SaveChanges();
+            dgvSubscription.AutoGenerateColumns = false;
+            dgvSubscription.DataSource = gymContext.GymSubscriptions.ToList();
+        }
+
+        private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Ảe you sủe đăng xuất khỏi trái đất?", "Bạn chắc chứ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                frmLogin frmLogin = new frmLogin();
+                this.Hide();
+                frmLogin.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void xemThôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon!", "Đợi 1 chút", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon!", "Đợi 1 chút", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void xuấtFileExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon!", "Đợi 1 chút", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void inHoáĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon!", "Đợi 1 chút", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void fanpageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon!", "Đợi 1 chút", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void youtubeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon!", "Đợi 1 chút", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void hotlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon!", "Đợi 1 chút", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void websiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon!", "Đợi 1 chút", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

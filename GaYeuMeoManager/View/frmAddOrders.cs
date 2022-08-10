@@ -86,9 +86,9 @@ namespace GaYeuMeoManager.View
                 int staffId = Convert.ToInt32(cbxStaff.SelectedValue);
                 int subscriptionId = Convert.ToInt32(cbxSubscription.SelectedValue);
                 int price = (from a in gymContext.GymSubscriptions
-                                            join c in gymContext.OrdersDetails on a.SubscriptionId equals c.SubscriptionId
-                                            where c.SubscriptionId == subscriptionId
-                                            select a.Price).FirstOrDefault();
+                             join c in gymContext.OrdersDetails on a.SubscriptionId equals c.SubscriptionId
+                             where c.SubscriptionId == subscriptionId
+                             select a.Price).FirstOrDefault();
                 int totalOrdersDetail = Convert.ToInt32(quantity * price);
                 int total = Convert.ToInt32((decimal)totalOrdersDetail);
                 int ordersId = addOrders(customerId, staffId, total);
@@ -106,12 +106,9 @@ namespace GaYeuMeoManager.View
 
                 dgvOrdersDetail.Rows.Add(ordersId, subscriptionId, quantity, totalOrdersDetail);
                 gymContext.SaveChanges();
+
             }
             
         }
-
-        
     }
-
-    
 }

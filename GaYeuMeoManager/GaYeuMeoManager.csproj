@@ -56,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\InvalidSubscriptionNameException.cs" />
+    <Compile Include="Controller\ISubscriptionController.cs" />
+    <Compile Include="Controller\SubscriptionController.cs" />
     <Compile Include="Controller\CustomerController.cs" />
     <Compile Include="Controller\ICustomerController.cs" />
     <Compile Include="Controller\InvalidCustomerNameException.cs" />
